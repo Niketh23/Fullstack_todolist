@@ -1,10 +1,12 @@
 const express = require("express");
 const { createTodoSchema, updateTodoSchema } = require("./types");
 const Todo = require("./db");
+const cors = require('cors');
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/createTodo",async(req,res)=>{
   const TodoItems = req.body;
